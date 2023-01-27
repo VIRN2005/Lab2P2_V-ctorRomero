@@ -14,6 +14,7 @@ public class Lab2P2_VíctorRomero {
         Edificios e = new Edificios();
         Solares s = new Solares();
         ArrayList lista = new ArrayList();
+        ArrayList<User> listaUsar = new ArrayList();
 
         System.out.println("Víctor Romero - 12211079\n");
 
@@ -92,134 +93,109 @@ public class Lab2P2_VíctorRomero {
                             }
                         }
                         break;
-                    }
-                }
 
-                case 2: { // Listar
-                    int terr = 0;
+                        case 2: { // Listar
+                            int terr2 = 0;
 
-                    System.out.println(">> MENU CREACION <<\n");
+                            System.out.println(">> MENU CREACION <<\n");
 
-                    System.out.println("1) Listar Casas");
-                    System.out.println("2) Listar Edificios");
-                    System.out.println("3) Listar Solares");
+                            System.out.println("1) Listar Casas");
+                            System.out.println("2) Listar Edificios");
+                            System.out.println("3) Listar Solares");
 
-                    System.out.print("Ingrese su Opcion de Registro: ");
-                    terr = leer.nextInt();
-                    System.out.println("=> La Opcion escojida de Registro es: " + terr);
-                    System.out.println(" ");
+                            System.out.print("Ingrese su Opcion de Registro: ");
+                            terr2 = leer.nextInt();
+                            System.out.println("=> La Opcion escojida de Registro es: " + terr2);
+                            System.out.println(" ");
 
-                    switch (terr) {
-                        case 1: {//Casas
-                            String chain = null;
-                            for (Object o : lista) {
-                                if (o instanceof Casas) {
-                                    chain += lista.indexOf(o) + "- " + o + "\n";
+                            switch (terr) {
+                                case 1: {//Casas
+                                    String chain = null;
+                                    for (Object o : lista) {
+                                        if (o instanceof Casas) {
+                                            chain += lista.indexOf(o) + "- " + o + "\n";
+                                        }
+                                    }
+                                    System.out.println(chain);
+                                }
+
+                                case 2: {//Edificios
+                                    String chain = null;
+                                    for (Object o : lista) {
+                                        if (o instanceof Edificios) {
+                                            chain += lista.indexOf(o) + "- " + o + "\n";
+                                        }
+                                    }
+                                    System.out.println(chain);
+                                }
+
+                                case 3: {// Solares
+                                    String chain = null;
+                                    for (Object o : lista) {
+                                        if (o instanceof Solares) {
+                                            chain += lista.indexOf(o) + "- " + o + "\n";
+                                        }
+                                    }
+                                    System.out.println(chain);
+                                }
+
+                                case 4: {
+                                    String chain = null;
+                                    for (Object o : lista) {
+                                        chain += lista.indexOf(o) + "- " + o + "\n";
+                                    }
+                                    System.out.println(chain);
                                 }
                             }
-                            System.out.println(chain);
+
+                        }
+                        break;
+
+                        case 3: { // Modificar
+
                         }
 
-                        case 2: {//Edificios
-                            String chain = null;
-                            for (Object o : lista) {
-                                if (o instanceof Edificios) {
-                                    chain += lista.indexOf(o) + "- " + o + "\n";
-                                }
-                            }
-                            System.out.println(chain);
-                        }
+                        int terr3 = 0;
+                        case 4: { // Borrar
 
-                        case 3: {// Solares
-                            String chain = null;
-                            for (Object o : lista) {
-                                if (o instanceof Solares) {
-                                    chain += lista.indexOf(o) + "- " + o + "\n";
-                                }
-                            }
-                            System.out.println(chain);
-                        }
-
-                        case 4: {
                             String chain = null;
                             for (Object o : lista) {
                                 chain += lista.indexOf(o) + "- " + o + "\n";
                             }
                             System.out.println(chain);
-                        }
-                    }
 
-                }
-                break;
+                            System.out.print("Ingrese su Opcion de Registro: ");
+                            terr3 = leer.nextInt();
+                            System.out.println("=> La Opcion escojida de Registro es: " + terr3);
+                            System.out.println(" ");
 
-                case 3: { // Modificar
-
-                }
-
-                int terr = 0;
-                case 4: { // Borrar
-
-                    String chain = null;
-                    for (Object o : lista) {
-                        chain += lista.indexOf(o) + "- " + o + "\n";
-                    }
-                    System.out.println(chain);
-
-                    System.out.print("Ingrese su Opcion de Registro: ");
-                    terr = leer.nextInt();
-                    System.out.println("=> La Opcion escojida de Registro es: " + terr);
-                    System.out.println(" ");
-
-                    lista.remove(terr);
-                }
-                break;
-
-                case 5: { // Comprar
-                    String chain = null;
-                    for (Object o : lista) {
-                        chain += lista.indexOf(o) + "- " + o + "\n";
-                    }
-                    System.out.println(chain);
-
-                    System.out.println(">> MENU CREACION <<\n");
-
-                    System.out.println("1) Comprar Casas");
-                    System.out.println("2) Comprar Edificios");
-                    System.out.println("3) Comprar Solares");
-
-                    System.out.print("Ingrese su Opcion de Registro: ");
-                    terr = leer.nextInt();
-                    System.out.println("=> La Opcion escojida de Registro es: " + terr);
-                    System.out.println(" ");
-                    ((Solares) lista.get(terr)).getDueño();
-                }
-
-                case 3: {// Login
-                    int login;
-
-                    System.out.println(">> MENU LOGIN <<\n");
-
-                    System.out.println("1) LOG IN");
-                    System.out.println("2) SIGN UP");
-                    System.out.println("3) LOG OUT");
-
-                    System.out.print("Ingrese su Opcion de Login: ");
-                    login = leer.nextInt();
-                    System.out.println("=> La Opcion escojida de Login es: " + login);
-                    System.out.println(" ");
-
-                    switch (login) {
-                        case 1: {
-                            lista.add(newUser());
+                            lista.remove(terr3);
                         }
                         break;
-                        
-                        case 2:{
-                            
+
+                        case 5: { // Comprar
+                            String chain = null;
+                            for (Object o : lista) {
+                                chain += lista.indexOf(o) + "- " + o + "\n";
+                            }
+                            System.out.println(chain);
+
+                            System.out.println(">> MENU CREACION <<\n");
+
+                            System.out.println("1) Comprar Casas");
+                            System.out.println("2) Comprar Edificios");
+                            System.out.println("3) Comprar Solares");
+
+                            System.out.print("Ingrese su Opcion de Registro: ");
+                            terr = leer.nextInt();
+                            System.out.println("=> La Opcion escojida de Registro es: " + terr);
+                            System.out.println(" ");
+                            ((Solares) lista.get(terr)).getDueño();
                         }
                     }
 
                 }
+
             }
 
         } while (opcion != 4);
@@ -317,23 +293,23 @@ public class Lab2P2_VíctorRomero {
         String Contrasena;
 
         User retorno;
-        
+
         leer.next();
         System.out.println("Ingrese el nombre de la Persona: ");
         nombre = leer.nextLine();
-        
+
         System.out.println("Ingrese la Edad: ");
         Edad = leer.nextInt();
-        
+
         leer.next();
         System.out.println("Ingrese el nombre del User: ");
         UserName = leer.nextLine();
-        
+
         leer.next();
         System.out.println("Ingrese la Contrasena del User: ");
-        Contrasena = leer.nextLine();        
-        
-        retorno = new User(nombre,Edad,UserName,Contrasena);
+        Contrasena = leer.nextLine();
+
+        retorno = new User(nombre, Edad, UserName, Contrasena);
         return retorno;
     }
 }
