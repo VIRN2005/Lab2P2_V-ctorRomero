@@ -56,7 +56,7 @@ public class Lab2P2_VíctorRomero {
 
                     int terr = 0;
                     switch (registro) {
-                        case 1: {
+                        case 1: { // Crear
                             System.out.println(">> MENU CREACION <<\n");
 
                             System.out.println("1) Crear Casas");
@@ -79,25 +79,113 @@ public class Lab2P2_VíctorRomero {
                                 case 2: {// Crear Edificios
                                     Edificios temp = new Edificios();
 
+                                    lista.add(newEdificios());
                                 }
                                 break;
 
                                 case 3: {// Crear Solares
+                                    Solares temp = new Solares();
 
+                                    lista.add(newSolares());
                                 }
                                 break;
                             }
-
                         }
                         break;
+                    }
+                }
 
+                case 2: { // Listar
+                    int terr = 0;
+
+                    System.out.println(">> MENU CREACION <<\n");
+
+                    System.out.println("1) Listar Casas");
+                    System.out.println("2) Listar Edificios");
+                    System.out.println("3) Listar Solares");
+
+                    System.out.print("Ingrese su Opcion de Registro: ");
+                    terr = leer.nextInt();
+                    System.out.println("=> La Opcion escojida de Registro es: " + terr);
+                    System.out.println(" ");
+
+                    switch (terr) {
+                        case 1: {//Casas
+                            String chain = null;
+                            for (Object o : lista) {
+                                if (o instanceof Casas) {
+                                    chain += lista.indexOf(o) + "- " + o + "\n";
+                                }
+                            }
+                            System.out.println(chain);
+                        }
+
+                        case 2: {//Edificios
+                            String chain = null;
+                            for (Object o : lista) {
+                                if (o instanceof Edificios) {
+                                    chain += lista.indexOf(o) + "- " + o + "\n";
+                                }
+                            }
+                            System.out.println(chain);
+                        }
+
+                        case 3: {// Solares
+                            String chain = null;
+                            for (Object o : lista) {
+                                if (o instanceof Solares) {
+                                    chain += lista.indexOf(o) + "- " + o + "\n";
+                                }
+                            }
+                            System.out.println(chain);
+                        }
+
+                        case 4: {
+                            String chain = null;
+                            for (Object o : lista) {
+                                chain += lista.indexOf(o) + "- " + o + "\n";
+                            }
+                            System.out.println(chain);
+                        }
                     }
 
                 }
-                case 2: { // 
+                break;
+
+                case 3: { // Modificar
 
                 }
-                break;
+
+                int terr = 0;
+                case 4: { // Borrar
+                    String chain = null;
+                    for (Object o : lista) {
+                        chain += lista.indexOf(o) + "- " + o + "\n";
+                    }
+                    System.out.println(chain);
+
+                    System.out.print("Ingrese su Opcion de Registro: ");
+                    terr = leer.nextInt();
+                    System.out.println("=> La Opcion escojida de Registro es: " + terr);
+                    System.out.println(" ");
+                    
+                    lista.remove(terr);
+                }
+                
+                case 5:{ // Comprar
+                    String chain = null;
+                    for (Object o : lista) {
+                        chain += lista.indexOf(o) + "- " + o + "\n";
+                    }
+                    System.out.println(chain);
+
+                    System.out.print("Ingrese su Opcion de Registro: ");
+                    terr = leer.nextInt();
+                    System.out.println("=> La Opcion escojida de Registro es: " + terr);
+                    System.out.println(" ");
+
+                    ()
+                }
 
                 case 3: {// Login
                     int login;
@@ -155,13 +243,51 @@ public class Lab2P2_VíctorRomero {
 
     }
 
-//    static Edificios newEdificios() {
-//        
-//        
-//        
-//    }
-//
-//    static Solares newSolares() {
-//
-//    }
+    static Edificios newEdificios() {
+        int numPisos;
+        int cantLocales;
+        String direccion;
+
+        Edificios retorno;
+
+        System.out.println("Ingrese el Numero de Pisos: ");
+        numPisos = leer.nextInt();
+
+        System.out.println("Ingrese el Numero de Locales: ");
+        cantLocales = leer.nextInt();
+
+        leer.next();
+
+        System.out.println("Ingrese la direccion del Edificio: ");
+        direccion = leer.nextLine();
+
+        retorno = new Edificios(numPisos, cantLocales, direccion);
+        return retorno;
+    }
+
+    static Solares newSolares() {
+        double largo;
+        double ancho;
+        double area;
+        String Dueño;
+
+        Solares retorno;
+
+        System.out.println("Ingrese el Largo de Solares: ");
+        largo = leer.nextDouble();
+
+        System.out.println("Ingrese el Ancho de Solares: ");
+        ancho = leer.nextDouble();
+
+        area = largo * ancho;
+        System.out.println("El area es: " + area);
+
+        leer.next();
+
+        System.out.println("Ingrese el dueno del Edificio: ");
+        Dueño = leer.nextLine();
+
+        retorno = new Solares(largo, ancho, area, Dueño);
+        return retorno;
+    }
 }
