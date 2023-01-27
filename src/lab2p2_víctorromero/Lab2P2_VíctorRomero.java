@@ -195,7 +195,54 @@ public class Lab2P2_VíctorRomero {
                     }
 
                 }
+                
+                case 3: {// Login
+                    int login;
 
+                    System.out.println(">> MENU LOGIN <<\n");
+
+                    System.out.println("1) LOG IN");
+                    System.out.println("2) SIGN UP");
+                    System.out.println("3) LOG OUT");
+
+                    System.out.print("Ingrese su Opcion de Login: ");
+                    login = leer.nextInt();
+                    System.out.println("=> La Opcion escojida de Login es: " + login);
+                    System.out.println(" ");
+
+                    switch (login) {
+                        case 1: {
+                            listaUsar.add(newUser());
+                        }
+                        break;
+
+                        case 2: {
+                            String UserName;
+                            String Contrasena;
+                            boolean userfound = false;
+
+                            leer.next();
+                            System.out.println("Ingrese el nombre del User: ");
+                            UserName = leer.nextLine();
+                            leer.next();
+                            System.out.println("Ingrese la Contraseña del User: ");
+                            Contrasena = leer.nextLine();
+
+                            for (int i = 0; i < listaUsar.size(); i++) {
+                                if (listaUsar.get(i).equals(UserName) && listaUsar.get(i).equals(Contrasena)) {
+                                    userfound = true;
+                                    System.out.println(">> Ha podido ingresar!");
+                                } else {
+                                    userfound = false;
+                                    break;
+                                }
+
+                            }
+
+                        }
+                    }
+
+                }
             }
 
         } while (opcion != 4);
