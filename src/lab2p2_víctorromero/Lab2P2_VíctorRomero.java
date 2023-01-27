@@ -158,6 +158,7 @@ public class Lab2P2_VíctorRomero {
 
                 int terr = 0;
                 case 4: { // Borrar
+
                     String chain = null;
                     for (Object o : lista) {
                         chain += lista.indexOf(o) + "- " + o + "\n";
@@ -168,23 +169,29 @@ public class Lab2P2_VíctorRomero {
                     terr = leer.nextInt();
                     System.out.println("=> La Opcion escojida de Registro es: " + terr);
                     System.out.println(" ");
-                    
+
                     lista.remove(terr);
                 }
-                
-                case 5:{ // Comprar
+                break;
+
+                case 5: { // Comprar
                     String chain = null;
                     for (Object o : lista) {
                         chain += lista.indexOf(o) + "- " + o + "\n";
                     }
                     System.out.println(chain);
 
+                    System.out.println(">> MENU CREACION <<\n");
+
+                    System.out.println("1) Comprar Casas");
+                    System.out.println("2) Comprar Edificios");
+                    System.out.println("3) Comprar Solares");
+
                     System.out.print("Ingrese su Opcion de Registro: ");
                     terr = leer.nextInt();
                     System.out.println("=> La Opcion escojida de Registro es: " + terr);
                     System.out.println(" ");
-
-                    ()
+                    ((Solares) lista.get(terr)).getDueño();
                 }
 
                 case 3: {// Login
@@ -194,13 +201,25 @@ public class Lab2P2_VíctorRomero {
 
                     System.out.println("1) LOG IN");
                     System.out.println("2) SIGN UP");
+                    System.out.println("3) LOG OUT");
 
                     System.out.print("Ingrese su Opcion de Login: ");
                     login = leer.nextInt();
                     System.out.println("=> La Opcion escojida de Login es: " + login);
                     System.out.println(" ");
+
+                    switch (login) {
+                        case 1: {
+                            lista.add(newUser());
+                        }
+                        break;
+                        
+                        case 2:{
+                            
+                        }
+                    }
+
                 }
-                break;
             }
 
         } while (opcion != 4);
@@ -288,6 +307,33 @@ public class Lab2P2_VíctorRomero {
         Dueño = leer.nextLine();
 
         retorno = new Solares(largo, ancho, area, Dueño);
+        return retorno;
+    }
+
+    static User newUser() {
+        String nombre;
+        int Edad;
+        String UserName;
+        String Contrasena;
+
+        User retorno;
+        
+        leer.next();
+        System.out.println("Ingrese el nombre de la Persona: ");
+        nombre = leer.nextLine();
+        
+        System.out.println("Ingrese la Edad: ");
+        Edad = leer.nextInt();
+        
+        leer.next();
+        System.out.println("Ingrese el nombre del User: ");
+        UserName = leer.nextLine();
+        
+        leer.next();
+        System.out.println("Ingrese la Contrasena del User: ");
+        Contrasena = leer.nextLine();        
+        
+        retorno = new User(nombre,Edad,UserName,Contrasena);
         return retorno;
     }
 }
