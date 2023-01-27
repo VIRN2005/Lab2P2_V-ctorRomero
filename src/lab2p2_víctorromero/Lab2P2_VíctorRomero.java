@@ -8,14 +8,15 @@ import javax.swing.JOptionPane;
 public class Lab2P2_VíctorRomero {
 
     static Scanner leer = new Scanner(System.in);
+    static ArrayList<User> listaUsar = new ArrayList();
 
     public static void main(String[] args) {
         Casas c = new Casas();
         Edificios e = new Edificios();
         Solares s = new Solares();
+        User u = new User();
         ArrayList lista = new ArrayList();
-        ArrayList<User> listaUsar = new ArrayList();
-
+        
         System.out.println("Víctor Romero - 12211079\n");
 
         int opcion;
@@ -195,7 +196,7 @@ public class Lab2P2_VíctorRomero {
                     }
 
                 }
-                
+
                 case 3: {// Login
                     int login;
 
@@ -212,6 +213,7 @@ public class Lab2P2_VíctorRomero {
 
                     switch (login) {
                         case 1: {
+
                             listaUsar.add(newUser());
                         }
                         break;
@@ -357,6 +359,14 @@ public class Lab2P2_VíctorRomero {
         Contrasena = leer.nextLine();
 
         retorno = new User(nombre, Edad, UserName, Contrasena);
+
+        boolean banderita = false;
+        for (User user : listaUsar) {
+            if (user.getUserName().equals("Admin") && user.getContrasena().equals("Admin1234")) {
+                banderita = true;
+            }
+        }
+
         return retorno;
     }
 }
