@@ -16,7 +16,7 @@ public class Lab2P2_VíctorRomero {
         Solares s = new Solares();
         User u = new User();
         ArrayList lista = new ArrayList();
-        
+
         System.out.println("Víctor Romero - 12211079\n");
 
         int opcion;
@@ -195,6 +195,23 @@ public class Lab2P2_VíctorRomero {
                         }
                     }
 
+                }
+
+                case 2: {
+                    int pos = 0;
+                    String[] estados = {"Lista, En Construcción, Construcción en Espera, En Espera de Demolición, Demolido"};
+                    do {
+                        System.out.println("Ingrese un numero de estado: ");
+                        System.out.println(estados);
+                        pos = leer.nextInt();
+
+                    } while (pos > 0 && pos < listaUsar.size());
+
+                    lista.get(pos - 1);
+                    
+                    for (String estado : estados) {
+                        System.out.println((pos+1)+" " + estados[pos]+"\n");
+                    }
                 }
 
                 case 3: {// Login
