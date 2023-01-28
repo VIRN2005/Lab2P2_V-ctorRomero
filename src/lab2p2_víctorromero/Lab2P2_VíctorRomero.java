@@ -153,10 +153,82 @@ public class Lab2P2_VíctorRomero {
                         break;
 
                         case 3: { // Modificar
+                            int terr4 = 0;
 
+                            System.out.println(">> MENU MODIFICAR <<\n");
+
+                            System.out.println("1) Modificar Casas");
+                            System.out.println("2) Modificar Edificios");
+                            System.out.println("3) Modificar Solares");
+
+                            System.out.print("Ingrese su Opcion de Registro: ");
+                            terr4 = leer.nextInt();
+                            System.out.println("=> La Opcion escojida de Registro es: " + terr4);
+                            System.out.println(" ");
+
+                            switch (terr4) {
+                                case 1: { // Casas
+                                    String chain = null;
+                                    for (Object o : lista) {
+                                        if (o instanceof Casas) {
+                                            chain += lista.indexOf(o) + "- " + o + "\n";
+                                        }
+                                    }
+                                    System.out.println(chain);
+
+                                    int pos = leer.nextInt();
+
+                                    if (lista.get(pos) instanceof Casas) {
+                                        ((Casas) lista.get(pos)).setNumCasa(pos);
+                                        ((Casas) lista.get(pos)).setNumBloque(pos);
+                                        ((Casas) lista.get(pos)).setColor(JColorChooser.showDialog(null, "Seleccione Color", Color.green));
+                                        ((Casas) lista.get(pos)).setAncho(pos);
+                                        ((Casas) lista.get(pos)).setLargo(pos);
+                                        ((Casas) lista.get(pos)).setNumBaños(pos);
+                                        ((Casas) lista.get(pos)).setNumCuartos(pos);
+                                    }
+                                }
+                                break;
+
+                                case 2: { // Edificios
+                                    String chain = null;
+                                    for (Object o : lista) {
+                                        if (o instanceof Edificios) {
+                                            chain += lista.indexOf(o) + "- " + o + "\n";
+                                        }
+                                    }
+                                    System.out.println(chain);
+                                    int pos = leer.nextInt();
+
+                                    if (lista.get(pos) instanceof Edificios) {
+                                        ((Edificios) lista.get(pos)).setCantLocales(pos);
+                                        ((Edificios) lista.get(pos)).setDireccion(chain);
+                                        ((Edificios) lista.get(pos)).setNumPisos(pos);
+                                    }
+                                }
+
+                                case 3: { //Solares
+                                    String chain = null;
+                                    for (Object o : lista) {
+                                        if (o instanceof Solares) {
+                                            chain += lista.indexOf(o) + "- " + o + "\n";
+                                        }
+                                    }
+                                    System.out.println(chain);
+                                    int pos = leer.nextInt();
+
+                                    if (lista.get(pos) instanceof Solares) {
+                                        ((Solares) lista.get(pos)).setAncho(pos);
+                                        ((Solares) lista.get(pos)).setArea(pos);
+                                        ((Solares) lista.get(pos)).setDueño(" ");
+                                        ((Solares) lista.get(pos)).setLargo(pos);
+                                    }
+                                }
+                            }
                         }
 
                         int terr3 = 0;
+
                         case 4: { // Borrar
 
                             String chain = null;
@@ -208,9 +280,9 @@ public class Lab2P2_VíctorRomero {
                     } while (pos > 0 && pos < listaUsar.size());
 
                     lista.get(pos - 1);
-                    
+
                     for (String estado : estados) {
-                        System.out.println((pos+1)+" " + estados[pos]+"\n");
+                        System.out.println((pos + 1) + " " + estados[pos] + "\n");
                     }
                 }
 
@@ -264,7 +336,8 @@ public class Lab2P2_VíctorRomero {
                 }
             }
 
-        } while (opcion != 4);
+        } while (opcion
+                != 4);
     }
 
     static Casas newCasas() {
